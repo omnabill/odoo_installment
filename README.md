@@ -57,7 +57,10 @@
 
 Notes in model logic: 
 	- Delete and edit is only allowed in "draft" State. 
+	- Handling making installment from invoice or not and it is only allowed to schedule the payments as installments or make it as payment from register payment
+	- in order to fully access the module user must be in the 3 groups of the module to get his full access rights and make payments and delete records
+	- Note the installment linked with an inovice has a fixed customer which can't be edited
 	
-> Pivot and Graph view
- 
-   for the installment model to express relation between diferent field.
+> Pivot and Graph view and pdf report
+    
+
