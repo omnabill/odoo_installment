@@ -63,4 +63,5 @@ Notes in model logic:
 	
 > Pivot and Graph view and pdf report
     
+### photos are in the task folder
 
