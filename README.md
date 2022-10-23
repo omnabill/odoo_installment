@@ -58,4 +58,4 @@
 Notes in model logic: 
 	- Delete and edit is only allowed in "draft" State. 
 	
-Pivot and Graph view for the installment model.
+> Pivot and Graph view for the installment model.
