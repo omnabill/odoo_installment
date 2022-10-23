@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_create_new_payment" model="ir.ui.view">
+        <field name="name">Create payment form</field>
+        <field name="model">create.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create New Payment">
+                <group class="oe_title">
+
+                    <group>
+                        <field name="installment_id"/>
+                        <label for="pay_amount" string="Amount"/>
+                        <div name="amount_div" class="o_row">
+                            <field name="pay_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" options="{'no_create': True, 'no_open': True}"
+                                   groups="base.group_multi_currency"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                        <field name="way"/>
+                    </group>
+
+                </group>
+                <footer>
+                    <button name="action_create_payment" string="Pay" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_payment_wizard" model="ir.actions.act_window">
+        <field name="name">Create Payment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">create.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_create_new_payment"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_installment">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div style="text-align:center">
+                            <h1>Installment Statement</h1>
+                        </div>
+                        <table class="table border table-borderless">
+                            <tr>
+                                <td>
+                                    <p>
+                                        <strong>Customer :</strong>
+                                        <span t-field="o.customer"/>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        <strong>Phone :</strong>
+                                        <span t-field="o.customer.phone"/>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        <strong>Email :</strong>
+                                        <span t-field="o.customer.email"/>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <span>Installments Details</span>
+                        <table class="table table-sm o_main_table" name="appointments">
+                            <thead>
+                                <tr>
+                                    <th name="th_reference">
+                                        <span>Reference</span>
+                                    </th>
+                                    <th name="th_date">
+                                        <span>Date</span>
+                                    </th>
+                                    <th name="th_amount">
+                                        <span>Amount</span>
+                                    </th>
+                                    <th name="th_paycondition">
+                                        <span>Payment Condition</span>
+                                    </th>
+
+                                </tr>
+
+                                <tr>
+                                    <t t-set="total_installments" t-value="0"/>
+                                    <t t-foreach="installments" t-as="line">
+                                        <t t-set="total_installments" t-value="total_installments+1"/>
+                                        <tr>
+                                            <td>
+                                                <span t-field="line.reference"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="line.date"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="line.amount"
+                                                      t-options='{"widget": "monetary", "display_currency": line.currency_id}'/>
+                                            </td>
+                                            <t t-if="line.state=='paid'">
+                                                <td>
+                                                    <span>(Fully Paid)</span>
+                                                </td>
+
+                                            </t>
+
+                                            <t t-if="not line.state=='paid'">
+                                                <td>
+                                                    <span>(In Payment)</span>
+                                                </td>
+                                            </t>
+
+
+                                        </tr>
+
+                                    </t>
+
+                                </tr>
+                                <t t-if="total_installments > 0">
+                                    <tr>
+                                    <td>
+                                        <strong>Total Installments :</strong>
+                                    </td>
+                                    <td>
+                                        <t t-esc="total_installments"/>
+                                    </td>
+                                </tr>
+                                </t>
+
+                            </thead>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

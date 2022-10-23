@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+<!--        sequence for Installment-->
+
+        <record id="sequence_installment_name" model="ir.sequence">
+            <field name="name">installment Sequence</field>
+            <field name="code">installment.installment</field>
+            <field name="prefix">IN</field>
+            <field name="padding">5</field>
+            <field eval="False" name="company_id"/>
+        </record>
+
+    </data>
+</odoo>

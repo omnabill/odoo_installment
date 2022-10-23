@@ -1,0 +1,30 @@
+{
+    'name': 'Installment and Payment',
+    'version': '',
+    'summary': 'Module made for controlling the installments and payments upon an invoice',
+    'sequence': -100,
+    'description': """Module made for controlling the installments and payments upon an invoice""",
+    'category': '',
+    'website': '',
+    'license': 'OEEL-1',
+    'depends': ['mail','account'],
+    'data': [
+        'data/data.xml',
+        'security/groups.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'wizard/create_payment_wizard.xml',
+        'wizard/pdf_wizard.xml',
+        'views/installment.xml',
+        'views/menu.xml',
+        'views/account_move.xml',
+        'reports/reports.xml',
+        'reports/installment_report_templ.xml'
+
+    ],
+    'demo': [],
+    'qweb': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

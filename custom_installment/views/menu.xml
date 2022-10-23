@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <menuitem id="installment_root"
+              name="Installments"
+              parent="account.menu_finance_receivables" sequence="999" groups="custom_installment.group_installment_users"/>
+
+    <!--  2th lvl Configuration  -->
+    <menuitem id="installment_cust_root"
+              name="Customer installments"
+              parent="installment_root"
+              action="action_installment_menu"
+    />
+    <menuitem id="installment_reports_root"
+              name="Reports"
+              parent="account.menu_finance_receivables"
+              sequence="1000" groups="custom_installment.group_installment_users"/>
+
+    <!--3rd lvl Configuration-->
+
+    <menuitem id="installment_statement_wizard"
+              name="Installment statement"
+              parent="installment_reports_root"
+              action="action_report_wizard"/>
+
+
+</odoo>

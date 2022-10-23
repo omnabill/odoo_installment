@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="user_allowed_installments" model="ir.rule">
+        <field name="name">Allowed User Installments</field>
+        <field name="model_id" ref="custom_installment.model_installment_installment"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval='[(4, ref("custom_installment.group_installment_users"))]' />
+    </record>
+
+    <record id="admin_allowed_installments" model="ir.rule">
+        <field name="name">Allowed Admin Installments</field>
+        <field name="model_id" ref="custom_installment.model_installment_installment"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval='[(4, ref("custom_installment.group_installment_admins"))]' />
+    </record>
+
+</odoo>
