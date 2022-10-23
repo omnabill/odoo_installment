@@ -2,6 +2,8 @@
            ## Installment Full App in odoo 
            
 > 1- Model (Have The Following Fields)
+
+
 	- Name: installment.installment 
 	- Fields:
 		1- Name: Char. Readonly
